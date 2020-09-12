@@ -25,7 +25,7 @@ export class CurrencyConvertFormComponent implements OnInit {
   convertTo = 'USD';
   amount: number;
 
-  convertFrom: string;
+  @Input() convertFrom: string;
   convertionResult: any;
 
 
@@ -57,6 +57,8 @@ export class CurrencyConvertFormComponent implements OnInit {
     this.init();
   }
 
+
+
   init() {
     this.currencyConvertionService.currencyRate().subscribe(
       data => {
@@ -72,6 +74,8 @@ export class CurrencyConvertFormComponent implements OnInit {
     );
   }
 
+
+
   convert() {
 
     this.currencyConvertionService.convertCurrency(this.convertFrom, this.convertTo, this.amount).subscribe(
@@ -81,25 +85,6 @@ export class CurrencyConvertFormComponent implements OnInit {
       }
     );
 
-    // let from = this.newForm.controls["from"].value;
-    // let to = this.newForm.controls["to"].value;
-    // let amount = this.newForm.controls["amount"].value;
-    // let toIndex = _.findIndex(this.rates, rate => {
-    //   return rate.code == to;
-    // });
-    // let fromIndex = _.findIndex(this.rates, rate => {
-    //   return rate.code == from;
-    // });
-    // let ratio = this.rates[toIndex].text / this.rates[fromIndex].text;
-    // let cal = ratio * amount;
-    // this.message =
-    //   amount +
-    //   " " +
-    //   this.rates[fromIndex].code +
-    //   " is equal to " +
-    //   cal +
-    //   " " +
-    //   this.rates[toIndex].code;
   }
 
 }

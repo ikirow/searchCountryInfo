@@ -14,27 +14,23 @@ export class CurrencyConvertionService {
   FIXERIO_URL = 'http://data.fixer.io/api/';
   FIXERIO_BASE = '&base=USD';
 
-  //60b34d2aae138cc80b1907b312de21b9
-
-  //dummy: 4bd23587552a3332d709e8b6355275ec
-
-  // currencySymbols() {
-  //   return this.http.get(
-  //     this.FIXERIO_URL + 'symbols?access_key=' + this.FIXERIO_API_KEY
-  //   );
-  // }
+   /**
+ * Concatenate all the needed variables and strings for the fixer.io endpoint for currency rates
+ * @return {String}  the fixer.io endpoint for currency rates in string format
+ */
   currencyRate() {
     return this.http.get(this.FIXERIO_URL + 'latest?access_key=' + this.FIXERIO_API_KEY  );
   }
 
+  /**
+ * Concatenate all the needed variables and strings for the fixer.io endpoint for currency convertion
+ * @param  {String} from this is the currency code you will convert from
+ * @param  {string} to this is the currency code you will convert to
+ * @param  {Number} amount this is the currency code you will convert to
+ * @return {String}  the fixer.io endpoint for currency convertion in string format
+ */
+
   convertCurrency(from: string, to: string, amount: number) {
     return this.http.get('http://data.fixer.io/api/' + this.FIXERIO_ENDPOINT + '?access_key=' + this.FIXERIO_API_KEY + '&from=' + from + '&to=' + to + '&amount=' + amount,   );
+  }
 }
-}
-// fetch('https://data.fixer.io/api/convert/0d52da9f2090212bec148d7cd9d858b1&from=GBP&to=USD&amount=25').then((response) => {
-// // The API call was successful!
-// console.log('success!', response);
-// }).catch((err) => {
-// // There was an error
-//   console.warn('Something went wrong.', err);
-// });

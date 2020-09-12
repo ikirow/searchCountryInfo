@@ -13,17 +13,17 @@ export class WeatherService {
 
   constructor(private httpClient: HttpClient) { }
 
+/**
+ * Get weather items by city
+ * @param  {String} cityName The string used for weather search
+ * @return {String}      The string for the OpenWeatherMap endpoint for a city
+ */
+
   getWeatheritemsbyCity(cityName: string): Observable<any> {
     return this.httpClient.get(this.WEATHER_API_URL + cityName + this.WEATHER_API_KEY + this.WEATHER_API_UNITS);
   }
 
-  getWeatherForecast(cityName: string): Observable<any> {
-    return this.httpClient.get(
-      this.WEATHER_API_URL + 'forecast?q=' + cityName + this.WEATHER_API_KEY + this.WEATHER_API_UNITS
 
-    )
-      //.catch(this.handleError);
-  }
 
 
 }
