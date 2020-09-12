@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "simpleWebApp"
+    }
+  },
+  "defaultProject": "simpleWebApp",
+  "cli": {
+    "analytics": "7974d5f4-caa2-491d-bd87-82b83f344dda"
+  }
 }

@@ -1,0 +1,7 @@
+<section>
+  <h1>convert to USD</h1>
+  <input type="text" placeholder="currency code" [(ngModel)]="convertFrom">
+  <input type="number" id='amount' placeholder="amount" [(ngModel)]="amount">
+  <button (click)='convert()'>çonvert</button>
+  <p *ngIf='convertionResult'>${{convertionResult}}</p>
+</section>

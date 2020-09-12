@@ -1,0 +1,30 @@
+
+<section class="search">
+  <input type="search" [(ngModel)]="countryFilter" placeholder="Search country">
+</section>
+<section class="resultList">
+  <ul>
+    <li *ngFor="let country of filteredCountries">
+        <a href="">{{country.name}}</a>
+    </li>
+  </ul>
+</section>
+<section class="grid results">
+  <figure *ngFor="let country of filteredCountries">
+    <img [src]="country.flag" alt="Trulli" style="width:100%">
+    <h1>{{country.name}}</h1>
+    <p>Capital:  {{country.capital}}</p>
+    <p>Region:  {{country.region}}</p>
+    <p>Subregion:  {{country.subregion}}</p>
+    <p>Region:  {{country.region}}</p>
+    <p>Currency: {{country.currencies[0].code}} </p>
+    <p>Time: {{country.timezones}}</p>
+    <p>Weather: {{country.mainWeatherType}}, {{country.weatherTypeDescription}}</p>
+    <p>Temperature : {{country.temperature}}&#8451;</p>
+    <p>Min Temperature : {{country.minTEmp}}&#8451;</p>
+    <p>Max Temperature : {{country.maxTEmp}}&#8451;</p>
+    <p>Humidity : {{country.humidity}}% </p>
+  </figure>
+
+</section>
+<app-currency-convert-form></app-currency-convert-form>
